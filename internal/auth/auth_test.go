@@ -6,19 +6,18 @@ import (
 	"testing"
 )
 
-
 func TestGetAPIKey(t *testing.T) {
 	tests := []struct {
-		name			string
-		header			http.Header
-		expectedError	error
-		errorMessage	string
+		name          string
+		header        http.Header
+		expectedError error
+		errorMessage  string
 	}{
 		{
-			name: "no header",
-			header: http.Header{},
+			name:          "no header",
+			header:        http.Header{},
 			expectedError: ErrNoAuthHeaderIncluded,
-			errorMessage: "no authorization header included",
+			errorMessage:  "no authorization header included",
 		},
 		{
 			name: "missing key",
@@ -26,7 +25,7 @@ func TestGetAPIKey(t *testing.T) {
 				"Authorization": []string{"ApiKey"},
 			},
 			expectedError: errors.New("malformed authorization header"),
-			errorMessage: "malformed authorization header",
+			errorMessage:  "malformed authorization header",
 		},
 		{
 			name: "missing key name",
@@ -34,7 +33,7 @@ func TestGetAPIKey(t *testing.T) {
 				"Authorization": []string{"abc123"},
 			},
 			expectedError: errors.New("malformed authorization header"),
-			errorMessage: "malformed authorization header",
+			errorMessage:  "malformed authorization header",
 		},
 	}
 
