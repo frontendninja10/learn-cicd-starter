@@ -33,4 +33,4 @@ jobs:
         run: gcloud info
 
       - name: Build and push Docker image
-        run: gcloud builds submit --tag africa-south1-docker.pkg.dev/airy-period-473621-h0/notely-ar-repo .
+        run: gcloud builds submit --tag africa-south1-docker.pkg.dev/airy-period-473621-h0/notely-ar-repo/notely:latest .
