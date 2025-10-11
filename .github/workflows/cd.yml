@@ -34,3 +34,6 @@ jobs:
 
       - name: Build and push Docker image
         run: gcloud builds submit --tag africa-south1-docker.pkg.dev/airy-period-473621-h0/notely-ar-repo/notely:latest .
+
+      - name: Deploy to Cloud Run
+        run: gcloud run deploy notely --image africa-south1-docker.pkg.dev/airy-period-473621-h0/notely-ar-repo/notely:latest --region us-central1 --allow-unauthenticated --project airy-period-473621-h0 --max-instances=4
